@@ -1,6 +1,6 @@
 # DC脚本使用步骤
 
-# DC_script
+DC_script
 
 syn script for DC Compiler
 How to use:
