@@ -1,5 +1,9 @@
 import os
 
+script1_file_dir = "/home/IC/q/SynFlow.tcl"
+script2_file_dir = "/home/IC/q/Sdc.tcl"
+design_file_dir = "/home/IC/ridecore-master/src/fpga"
+
 def CopyScript():
     os.system('cp {} ./syn/script/'.format(script1_file_dir))
     os.system('cp {} ./syn/script/'.format(script2_file_dir))
@@ -27,9 +31,7 @@ def CopyAndCreatFilelist(file_dir):
                 dir_path ="{}/{}.vh".format(work_dir,design)
                 source_path="{}/{}.vh".format(root,design)
                 os.system('cp {} {}'.format(source_path,dir_path))
-script1_file_dir = "/home/IC/q/SynFlow.tcl"
-script2_file_dir = "/home/IC/q/Sdc.tcl"
-design_file_dir = "/home/IC/ridecore-master/src/fpga"
+
 os.system('rm -rf ./rtl ./syn ./files_syn.fl ./WORK')
 os.system('mkdir -p ./rtl ./syn/mapped ./syn/report ./syn/script ./syn/unmapped ./WORK ./syn/log')
 CopyAndCreatFilelist(design_file_dir)
