@@ -11,6 +11,22 @@ How to use:
 
 2 设置要综合的RTL地址和top_module
 
+```tcl
+main2.py修改3~5行
+对应项目的指定目录
+script1_file_dir = "/xxx/SynFlow.tcl"
+script2_file_dir = "/xxx/Sdc.tcl"
+design_file_dir = "/xxxxx/xxx/"
+
+Sdc.tcl修改2~3行
+对应顶层的时钟和复位
+set RST_NAME				rst_n
+set CLK_NAME				clk
+
+SynFlow.tcl修改24行
+set TOP_DESIGN top_module
+```
+
 3 根据不同设计修改script
 
 ​			也可在编译的脚本后修改syn下的script；但需要手动开启DC也就是注释掉main.py最后一行改为`os.system('cd WORK ') `
