@@ -29,7 +29,7 @@ set TOP_DESIGN top_module
 
 3 根据不同设计修改script
 
-​			也可在编译的脚本后修改syn下的script；但需要手动开启DC也就是注释掉main2.py最后一行改为
+​			也可在编译的脚本后修改syn下的script；但需要手动开启DC也就是注释掉main.py最后一行改为
 
 `os.system('cd WORK ') `
 
@@ -43,13 +43,13 @@ set TOP_DESIGN top_module
 	
 	1 将RTL和SDC自动拷贝至工作目录下/rtl和/syn/scripts下
 	
-	2 自动创建/syn/mapped unmapped report文件夹
+	2 自动创建/syn/mapped unmapped report WORK文件夹
 	
 	3 自动生成RTL的filelist,文件多可以不用手敲了
 	        SynFlow中是DC脚本操作的流程
 	        Sdc中是时序和面积和IO约束（所有约束采用变量引用的方式书写，改动只需在文件头修改变量即可）
 	        
-	4 启动DC，读入script（新增功能是可以自动打开DC并链接脚本；若不想直接打开DC可以注释掉main.py最后一行） 
+	4 启动DC，进入工作目录WORK，读入script（新增功能是可以自动打开DC并链接脚本；若不想直接打开DC可以注释掉main.py最后一行） 
 
 
 
