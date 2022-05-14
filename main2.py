@@ -16,13 +16,13 @@ def CopyAndCreatFilelist(file_dir):
         for file in files:
             design = os.path.splitext(file)[0]
             if os.path.splitext(file)[1] == ".v":
-                wdata ="{}/{}.v".format(work_dir,design)
+                wdata ="{}/{}.v".format(root,design)
                 WriteFilelist('./files_syn.fl',wdata)
                 dir_path ="{}/{}.v".format(work_dir,design)
                 source_path="{}/{}.v".format(root,design)
                 os.system('cp {} {}'.format(source_path,dir_path))
             elif os.path.splitext(file)[1] == ".vh":
-                wdata ="{}/{}.vh".format(work_dir,design)
+                wdata ="{}/{}.vh".format(root,design)
                 WriteFilelist("./files_syn.fl",wdata)
                 dir_path ="{}/{}.vh".format(work_dir,design)
                 source_path="{}/{}.vh".format(root,design)
@@ -30,8 +30,8 @@ def CopyAndCreatFilelist(file_dir):
 script1_file_dir = "/home/IC/q/SynFlow.tcl"
 script2_file_dir = "/home/IC/q/Sdc.tcl"
 design_file_dir = "/home/IC/ridecore-master/src/fpga"
-os.system('rm -rf ./rtl ./syn ./files_syn.fl')
-os.system('mkdir -p ./rtl ./syn/mapped ./syn/report ./syn/script ./syn/unmapped')
+os.system('rm -rf ./rtl ./syn ./files_syn.fl ./WORK')
+os.system('mkdir -p ./rtl ./syn/mapped ./syn/report ./syn/script ./syn/unmapped ./WORK ./syn/log')
 CopyAndCreatFilelist(design_file_dir)
 CopyScript()
-
+os.system('cd WORK && dc_shell -f ../syn/script/SynFlow.tcl -gui -output_log_file ../syn/log/top_syn.log')

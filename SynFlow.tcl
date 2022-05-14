@@ -12,7 +12,7 @@ echo "\n\nI'm Ready!"
 
 #--------------------------Prepare Filelist---------------------------
 set FILE_LIST ""
-set f [open "./files_syn.fl" r]
+set f [open "../files_syn.fl" r]
 while {![eof $f]} {
     gets $f line
     append FILE_LIST "$line "
@@ -30,7 +30,7 @@ elaborate $TOP_DESIGN
 #link(auto)
 
 #-------------------------------SDC----------------------------------
-source ./syn/script/Sdc.tcl
+source ../syn/script/Sdc.tcl
 
 #--------------------Map and Optimize the Design---------------------
 compile_ultra -no_autoungroup -incremental -no_boundary_optimization
@@ -38,21 +38,21 @@ compile_ultra -no_autoungroup -incremental -no_boundary_optimization
 change_names -rules verilog -hierarchy
 set_fix_multiple_port_nets -all -buffer_constants
 #---------------Check the Synthesized Design for Consistency---------
-check_design -summary > ./check_design.rpt
-check_timing > ./check_timing.rpt
+check_design -summary > ../syn/report/check_design.rpt
+check_timing > ../syn/report/check_timing.rpt
 #---------------------Report Timing and Area-------------------------
-report_qor                  > ./syn/report/$TOP_DESIGN.qor_rpt
-report_timing -max_paths 1000 > ./syn/report/$TOP_DESIGN.timing_rpt
-report_timing -path full    > ./syn/report/$TOP_DESIGN.full_timing_rpt
-report_timing -delay max    > ./syn/report/$TOP_DESIGN.setup_timing_rpt
-report_timing -delay min    > ./syn/report/$TOP_DESIGN.hold_timing_rpt
-report_reference            > ./syn/report/$TOP_DESIGN.ref_rpt
-report_area                 > ./syn/report/$TOP_DESIGN.area_rpt
-report_constraints          > ./syn/report/$TOP_DESIGN.const_rpt
-report_constraint -all_violators > ./syn/report/$TOP_DESIGN.violators_rpt
-report_power > ./rpt/$TOP_DESIGN.power_rpt
-check_timing > ./log/last_check_timing.log
+report_qor                  > ../syn/report/$TOP_DESIGN.qor_rpt
+report_timing -max_paths 1000 > ../syn/report/$TOP_DESIGN.timing_rpt
+report_timing -path full    > ../syn/report/$TOP_DESIGN.full_timing_rpt
+report_timing -delay max    > ../syn/report/$TOP_DESIGN.setup_timing_rpt
+report_timing -delay min    > ../syn/report/$TOP_DESIGN.hold_timing_rpt
+report_reference            > ../syn/report/$TOP_DESIGN.ref_rpt
+report_area                 > ../syn/report/$TOP_DESIGN.area_rpt
+report_constraints          > ../syn/report/$TOP_DESIGN.const_rpt
+report_constraint -all_violators > ../syn/report/$TOP_DESIGN.violators_rpt
+report_power > ../syn/report/$TOP_DESIGN.power_rpt
+check_timing > ../syn/log/last_check_timing.log
 #---------------------Generate Files -------------------------
-write -f verilog -hierarchy -output ./syn/mapped/$TOP_DESIGN.v
-write_sdc ./syn/mapped/$TOP_DESIGN.sdc
-write_sdf -context verilog ./syn/mapped/$TOP_DESIGN.sdf
+write -f verilog -hierarchy -output ../syn/mapped/$TOP_DESIGN.v
+write_sdc ../syn/mapped/$TOP_DESIGN.sdc
+write_sdf -context verilog ../syn/mapped/$TOP_DESIGN.sdf
