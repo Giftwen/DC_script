@@ -23,7 +23,13 @@ Sdc.tcl修改2~3行
 set RST_NAME				rst_n
 set CLK_NAME				clk
 
-SynFlow.tcl修改24行
+SynFlow.tcl修改第2~5行和24行
+设置工艺库路径{2~5}
+set DESIGN_PATH /opt/PDKs/smic_180/SM00LB501-FE-00000-r0p0-00rel0/aci/sc-m/synopsys 
+set search_path "$search_path $DESIGN_PATH"
+set target_library "ss_1v62_125c.db"
+set link_library "* $target_library"
+设置顶层RTL的module{24}
 set TOP_DESIGN top_module
 ```
 
