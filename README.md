@@ -39,7 +39,7 @@ set TOP_DESIGN top_module
 
 `os.system('cd WORK ') `
 
-4 编译脚本
+4 在工作目录下编译脚本
 
 `python3 main2.py `
 
