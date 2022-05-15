@@ -5,7 +5,7 @@ DC_script
 syn script for Design Compiler
 How to use:
 
-1 拷贝python脚本至工作目录
+1 拷贝python脚本至工作目录，新建一个空的目录作为工作目录，同时确保要综合的RTL代码在的目录下没有别的多余文件和存放非RTL代码文件的子目录
 
 `cp main2.py {WorkDir}`
 
