@@ -33,7 +33,7 @@ set link_library "* $target_library"
 set TOP_DESIGN top_module
 ```
 
-3 根据不同设计修改script
+3 根据不同设计修改script（可选）
 
 ​			也可在编译的脚本后修改syn下的script；但需要手动开启DC也就是注释掉main.py最后一行改为
 
