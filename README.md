@@ -2,7 +2,7 @@
 
 DC_script
 
-syn script for DC Compiler
+syn script for Design Compiler
 How to use:
 
 1 拷贝python脚本至工作目录
