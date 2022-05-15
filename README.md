@@ -9,7 +9,7 @@ How to use:
 
 `cp main2.py {WorkDir}`
 
-2 设置要综合的RTL地址和top_module
+2 设置要综合的RTL地址和top_module以及工艺库
 
 ```tcl
 main2.py修改3~5行
